@@ -1,7 +1,10 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
-const fs = require('fs');
+const fse = require('fs-extra');
 const validator = require('email-validator');
+
+// Markdown file
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -133,11 +136,23 @@ const questions = [
     }
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function to write README file
+function writeToFile(fileName, data) {
+    fse.writeFile(filename, data, (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('README has been successfully generated')
+        }
+    })
+}
 
-// TODO: Create a function to initialize app
-function init() {}
+// function to initialize app
+function init() {
+    inquirer.prompt(questions).then(function (data) {
+        writeToFile("README.md", generateMarkdown(data));
+    })
+}
 
 // Function call to initialize app
 init();
