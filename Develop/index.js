@@ -1,5 +1,5 @@
 // TODO: Include packages needed for this application
-import inquirer from 'inquirer';
+const inquirer = require('inquirer');
 const fse = require('fs-extra');
 const validator = require('email-validator');
 
@@ -12,7 +12,7 @@ const questions = [
     {
         type: 'input',
         name: 'title',
-        message: 'Enter the title of your project',
+        message: 'Enter the title of your project:',
         validate: val => {
             if (val) {
                 return true;
@@ -26,7 +26,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Provide a brief description of your project',
+        message: 'Provide a brief description of your project:',
         validate: val => {
             if (val) {
                 return true;
@@ -40,7 +40,7 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'Enter installation instructions of project',
+        message: 'Enter installation instructions of project:',
         validate: val => {
             if (val) {
                 return true;
@@ -54,7 +54,7 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Enter the usage information for the project',
+        message: 'Enter the usage information for the project:',
         validate: val => {
             if (val) {
                 return true;
@@ -96,8 +96,8 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        message: 'Choose how you want to license your project through the list of options',
-        choices: ["Apache", "GNU General v3.0", "MIT", "Boost Software", "Eclipse"],
+        message: 'Choose how you want to license your project through the list of options:',
+        choices: ["Apache", "GNU", "MIT", "Boost Software", "Eclipse"],
         validate: val => {
             if (val) {
                 return true
@@ -121,11 +121,25 @@ const questions = [
         }
     },
 
+    // Repo name for license
+    {
+        type: 'input',
+        name: 'repo',
+        message: 'What is the name of your project repo?',
+        validate: val => {
+            if (val) {
+                return true
+            } else {
+                return 'Repo name is required. Please enter the repository name for your project'
+            }
+        }
+    },
+
     // Email Address
     {
         type: 'input',
         name: 'email',
-        message: 'Enter your email address',
+        message: 'Enter your email address:',
         validate: val => {
             if (validator.validate(val)) {
                 return true
@@ -138,7 +152,7 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-    fse.writeFile(filename, data, (err) => {
+    fse.writeFile(fileName, data, (err) => {
         if (err) {
             console.log(err);
         } else {
