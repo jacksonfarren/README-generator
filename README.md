@@ -1,5 +1,9 @@
 # Professional README Generator
 
+## Demo
+
+![README generator](./assets/readme-generator.gif)
+
 ## User Story
 
 ```md
