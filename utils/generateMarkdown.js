@@ -62,7 +62,7 @@ function generateMarkdown(data) {
   - [Contribution Guidelines](#guidelines)
   - [Test Instructions](#testing)
   - [License](#license)
-  - [Credits](#credits)
+  - [Questions](#questions)
 
   ## Installation
   ${data.installation}
@@ -70,7 +70,7 @@ function generateMarkdown(data) {
   ## Usage
   ${data.usage}
 
-  ## Guidelines
+  ## Contributions
   ${data.guidelines}
 
   ## Testing
@@ -78,8 +78,9 @@ function generateMarkdown(data) {
 
   ${renderLicenseSection(data.license)}
 
-  ## Credits
-  ${data.username}
+  ## Questions
+  Check me out on GitHub: [${data.username}](https://github.com/${data.username})
+  Email me: ${data.email}
 `;
 }
 

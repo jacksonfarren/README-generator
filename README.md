@@ -27,3 +27,17 @@ THEN this is added to the section of the README entitled Questions, with instruc
 WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
 ```
+
+## Installation
+`npm i`
+
+`npm install fs-extra`
+
+`npm install inquirer`
+
+`npm install email-validator`
+
+## Usage 
+
+To use the README generator, navigate to the base directory of the project and type the command: `node index`
+
