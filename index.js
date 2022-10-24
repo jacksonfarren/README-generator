@@ -68,12 +68,12 @@ const questions = [
     {
         type: 'input',
         name: 'guidelines',
-        message: 'What are the contribution guidelines for the project?',
+        message: 'Who are the contributerss to the project?',
         validate: val => {
             if (val) {
                 return true
             } else {
-                return 'Contribution guidelines are required. Please enter the contribution guidelines for the project'
+                return 'Contributions are required. Please enter the contributions for the project'
             }
         }
     },
